@@ -23,8 +23,6 @@ namespace RSS
         public MainWindow()
         {
             InitializeComponent();
-            //heja
-            //#tyryryry
         }
     }
 }
