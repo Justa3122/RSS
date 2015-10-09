@@ -24,6 +24,7 @@ namespace RSS
         {
             InitializeComponent();
             //heja
+            //#tyryryry
         }
     }
 }
