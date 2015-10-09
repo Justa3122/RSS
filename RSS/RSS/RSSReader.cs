@@ -8,7 +8,5 @@ namespace RSS
 {
     class RSSReader
     {
-        public int id;
-        public string message;
     }
 }
