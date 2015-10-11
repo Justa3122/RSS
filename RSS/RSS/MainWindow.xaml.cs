@@ -23,6 +23,18 @@ namespace RSS
         public MainWindow()
         {
             InitializeComponent();
+            System.Windows.Media.Brush col1 = OuterGlow.BorderBrush;
+            DropShadowEffect.Color = ((SolidColorBrush)col1).Color;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
         }
     }
 }
