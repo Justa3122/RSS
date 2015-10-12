@@ -46,27 +46,6 @@ namespace RSS
                     }
                 }
             }
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(channelInfo.title + "\n");
-            Console.WriteLine(channelInfo.link + "\n");
-            Console.WriteLine(channelInfo.pubdate + "\n");
-            Console.WriteLine(channelInfo.language + "\n");
-            Console.WriteLine(channelInfo.generator + "\n");
-            Console.WriteLine(channelInfo.webmaster + "\n");
-            Console.WriteLine(channelInfo.description + "\n");
-            Console.WriteLine(channelInfo.copyright + "\n");
-            Console.ForegroundColor = ConsoleColor.White;
-
-            int i = 0;
-            foreach (var item in newsList)
-            {
-                item.Display();
-                if (i>5)
-                {
-                    break;
-                }
-                i++;
-            }
         }
         private News ReadItem()
         {
