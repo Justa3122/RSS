@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace RSS
 {
-    struct Channel
+    public struct Channel
     {
         public string title,
                 link,
@@ -18,7 +18,7 @@ namespace RSS
                 generator,
                 webmaster;
     }
-    class RSSReader
+    public class RSSReader
     {
         public List<News> newsList = new List<News>();
         public Channel channelInfo;
@@ -76,12 +76,12 @@ namespace RSS
                         case "pubDate":
                             _xmlReader.Read();
                             pubdate1 = _xmlReader.Value.Trim();
-                            news = new News(title1, description1, link1, pubdate1);
+                            news = new News(1, title1, description1, link1, pubdate1);
                             return news;
                     }
                 }
             }
-            news = new News(title1, description1, link1, pubdate1);
+            news = new News(1, title1, description1, link1, pubdate1);
             return news;
         
         }
