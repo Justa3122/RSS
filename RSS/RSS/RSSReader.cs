@@ -14,10 +14,10 @@ namespace RSS
             XmlReader reader = XmlReader.Create(channel);
             News news;
             string title = "",
-                link = "",
-                category = "",
-                pubdate = "",
-                description = "";
+                   link = "",
+                   category = "",
+                   pubdate = "",
+                   description = "";
 
             while (reader.Read())
             {
