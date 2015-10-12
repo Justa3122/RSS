@@ -7,47 +7,145 @@ using System.Xml;
 
 namespace RSS
 {
-    static class RSSReader
+    struct Channel
     {
-        static void ReadNews(string channel)
-        {
-            XmlReader reader = XmlReader.Create(channel);
-            News news;
-            string title = "",
-                   link = "",
-                   category = "",
-                   pubdate = "",
-                   description = "";
+        public string title,
+                link,
+                description,
+                language,
+                copyright,
+                pubdate,
+                generator,
+                webmaster;
+    }
+    class RSSReader
+    {
+        public List<News> newsList = new List<News>();
+        public Channel channelInfo;
+        private XmlReader _xmlReader;
 
-            while (reader.Read())
+        /// <summary>
+        /// Wczytuje najnowsze wiadomości i dodaje je do list newsList
+        /// </summary>
+        /// <param name="channelLink">Link do kanału, z którego zostaną pobrane wiadomości</param>
+        public void ReadNews(string channelLink)
+        {
+            _xmlReader = XmlReader.Create(channelLink);
+            while (_xmlReader.Read())
             {
-                if (reader.IsStartElement())
+                if (_xmlReader.IsStartElement())
                 {
-                    switch (reader.Name)
+                    switch (_xmlReader.Name)
+                    {
+                        case "item":
+                            newsList.Add(ReadItem());
+                            break;
+                        case "channel":
+                            ReadChannelInformation();
+                            break;
+                    }
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(channelInfo.title + "\n");
+            Console.WriteLine(channelInfo.link + "\n");
+            Console.WriteLine(channelInfo.pubdate + "\n");
+            Console.WriteLine(channelInfo.language + "\n");
+            Console.WriteLine(channelInfo.generator + "\n");
+            Console.WriteLine(channelInfo.webmaster + "\n");
+            Console.WriteLine(channelInfo.description + "\n");
+            Console.WriteLine(channelInfo.copyright + "\n");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            int i = 0;
+            foreach (var item in newsList)
+            {
+                item.Display();
+                if (i>5)
+                {
+                    break;
+                }
+                i++;
+            }
+        }
+        private News ReadItem()
+        {
+            News news;
+            string title1 = "",
+                link1 = "",
+                pubdate1 = "",
+                description1 = "";
+
+            while (_xmlReader.Read())
+            {
+                if (_xmlReader.IsStartElement())
+                {
+                    switch (_xmlReader.Name)
                     {
                         case "title":
-                            reader.Read();
-                            title = reader.Value.Trim();
+                            _xmlReader.Read();
+                            title1 = _xmlReader.Value.Trim();
                             break;
                         case "link":
-                            reader.Read();
-                            link = reader.Value.Trim();
-                            break;
-                        case "category":
-                            reader.Read();
-                            category = reader.Value.Trim();
+                            _xmlReader.Read();
+                            link1 = _xmlReader.Value.Trim();
                             break;
                         case "description":
-                            reader.Read();
-                            description = reader.Value.Trim();
+                            _xmlReader.Read();
+                            description1 = _xmlReader.Value.Trim();
                             break;
                         case "pubDate":
-                            reader.Read();
-                            pubdate = reader.Value.Trim();
-                            news = new News(title, description, link, category, pubdate);
-                            //Dopiero po wczytaniu elementu <pubDate> zostaje stworzony obiekt klasy,
-                            //ponieważ ten element jest zawsze ostatnim elementem wiadomości
+                            _xmlReader.Read();
+                            pubdate1 = _xmlReader.Value.Trim();
+                            news = new News(title1, description1, link1, pubdate1);
+                            return news;
+                    }
+                }
+            }
+            news = new News(title1, description1, link1, pubdate1);
+            return news;
+        
+        }
+        private void ReadChannelInformation()
+        {
+            while (_xmlReader.Read())
+            {
+                if (_xmlReader.IsStartElement())
+                {
+                    switch (_xmlReader.Name)
+                    {
+                        case "title":
+                            _xmlReader.Read();
+                            channelInfo.title = _xmlReader.Value.Trim();
                             break;
+                        case "link":
+                            _xmlReader.Read();
+                            channelInfo.link = _xmlReader.Value.Trim();
+                            break;
+                        case "description":
+                            _xmlReader.Read();
+                            channelInfo.description = _xmlReader.Value.Trim();
+                            break;
+                        case "language":
+                            _xmlReader.Read();
+                            channelInfo.language = _xmlReader.Value.Trim();
+                            break;
+                        case "copyright":
+                            _xmlReader.Read();
+                            channelInfo.copyright = _xmlReader.Value.Trim();
+                            break;
+                        case "pubDate":
+                            _xmlReader.Read();
+                            channelInfo.pubdate = _xmlReader.Value.Trim();
+                            break;
+                        case "generator":
+                            _xmlReader.Read();
+                            channelInfo.generator = _xmlReader.Value.Trim();
+                            break;
+                        case "webMaster":
+                            _xmlReader.Read();
+                            channelInfo.webmaster = _xmlReader.Value.Trim();
+                            return;
                     }
                 }
             }

@@ -27,8 +27,6 @@ namespace RSS
                 ImgsrcFragment = description.Substring(description.IndexOf("<img"), description.IndexOf("/>") + 2);
                 Text = description.Substring(description.IndexOf("/>") + 2, description.IndexOf("<a") - (description.IndexOf("/>") + 2));
                 GetImageLink(ImgsrcFragment);
-                //Do poprawy ~KG > Zbudowane pod kanał: "Wiadomości"
-                //Na kanale z wiadomościami, ostatni news ma inna budowę przez co opis zawiera linka.
             }
             catch
             {
