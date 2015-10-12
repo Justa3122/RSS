@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -44,13 +45,14 @@ namespace RSS
                         case "pubDate":
                             reader.Read();
                             pubdate = reader.Value.Trim();
-                            news = new News(title, description, link, category, pubdate);
+                           // news = new News(title, description, link, category, pubdate); 
                             //Dopiero po wczytaniu elementu <pubDate> zostaje stworzony obiekt klasy,
                             //ponieważ ten element jest zawsze ostatnim elementem wiadomości
                             break;
                     }
                 }
             }
+            
         }
     }
 }

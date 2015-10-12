@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace RSS
 {
@@ -10,7 +11,7 @@ namespace RSS
     /// Klasa służy do odczytu znacznika <description>, ponieważ zawiera ona: opis, obrazek oraz link
     /// przez co XmlReader sobie z tym nie radzi.
     /// </summary>
-    class Description
+    public class Description
     {
         public string Text { get; set; }
         public string ImgsrcFragment { get; set; }
