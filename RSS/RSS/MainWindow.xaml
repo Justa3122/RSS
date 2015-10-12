@@ -16,6 +16,7 @@
                 <DropShadowEffect x:Name="DropShadowEffect" BlurRadius="30" ShadowDepth="0" RenderingBias="Quality"/>
             </Border.Effect>
         </Border>
+        <Rectangle Margin="22,22,22,0" Height="23" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown" Fill="{StaticResource ResourceKey=MainBackground}"/>
         <Button Style="{StaticResource ResourceKey=CloseButtonStyle}" VerticalContentAlignment="Center" FontWeight="Bold" Margin="0,25,25,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click_1" Background="#FF343434"/>
         <Button Style="{StaticResource ResourceKey=MinimizeButtonStyle}" FontWeight="Bold" FontStretch="UltraExpanded" Margin="0,25,45,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click"/>
     </Grid>
