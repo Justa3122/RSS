@@ -36,5 +36,12 @@ namespace RSS
         {
             Application.Current.MainWindow.Close();
         }
+        private void Rectangle_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }
