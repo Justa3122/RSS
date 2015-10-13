@@ -20,6 +20,7 @@ namespace RSS
 
         public Category(int categoryId, string name)
         {
+            News = new List<News>();
             this.CategoryID = categoryId;
             this.Name = name;
         }

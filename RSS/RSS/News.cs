@@ -15,7 +15,7 @@ namespace RSS
         public string LinkToWebsite { get; set; }
         public DateTime DateOfPublication { get; set; }
         public Description DescriptionOfNews { get; set; }
-
+        
         public News(int newsId, string title, string description, string link, string pubdate)
         {
             this.NewsID = newsId;
