@@ -63,7 +63,7 @@ namespace RSS
 
         private void button1win2_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
     }
 }
