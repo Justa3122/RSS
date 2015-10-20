@@ -20,6 +20,7 @@ namespace RSS
     /// </summary>
     public partial class MainWindow : Window
     {
+        Window2 okno2 = new Window2();
         public MainWindow()
         {
             
@@ -68,7 +69,7 @@ namespace RSS
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.Close();
+            this.Close();
         }
         private void Rectangle_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -76,6 +77,20 @@ namespace RSS
             {
                 DragMove();
             }
+        }
+        public int zmienna;
+        public void button1_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            okno2.Show();
+            zmienna = 0;
+        }
+
+        public void button2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            okno2.Show();
+            zmienna = 1;
         }
     }
 }

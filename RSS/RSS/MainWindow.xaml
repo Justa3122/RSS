@@ -10,7 +10,7 @@
     </Window.Resources>
 
     <Grid Margin="0,0,0,27">
-        <Border x:Name="OuterGlow" Margin="22,25,18,10" BorderBrush="{StaticResource ResourceKey=DropShadowEffectColor}" 
+        <Border x:Name="OuterGlow" Margin="19,21,21,14" BorderBrush="{StaticResource ResourceKey=DropShadowEffectColor}" 
                 BorderThickness="1" Background="#FF232323">
             <Border.Effect>
                 <DropShadowEffect x:Name="DropShadowEffect" BlurRadius="30" ShadowDepth="0" RenderingBias="Quality"/>
@@ -34,10 +34,10 @@
         <Expander Name="expander" Header="KATEGORIE" HorizontalAlignment="Left" Height="101" Margin="57,27,0,0" VerticalAlignment="Top" Width="228" FontWeight="Bold" FontFamily="Verdana" FontSize="14" Foreground="#FFD63434" BorderBrush="{x:Null}" Background="{x:Null}">
             <Grid Height="74" Margin="2,0,-2,0" Opacity="0.265"/>
         </Expander>
-        <Label Name="label1" Content="czytaj dalej..." HorizontalAlignment="Left" Height="29" Margin="390,162,0,0" VerticalAlignment="Top" Width="81" Foreground="White" FontWeight="Bold" FontFamily="Verdana" FontSize="9"/>
         <Label Content="czytaj dalej..." HorizontalAlignment="Left" Height="29" Margin="392,616,0,0" VerticalAlignment="Top" Width="81" Foreground="White" FontWeight="Bold" FontFamily="Verdana" FontSize="9"/>
         <Label Content="czytaj dalej..." HorizontalAlignment="Left" Height="29" Margin="390,511,0,0" VerticalAlignment="Top" Width="81" Foreground="White" FontWeight="Bold" FontFamily="Verdana" FontSize="9"/>
         <Label Content="czytaj dalej..." HorizontalAlignment="Left" Height="29" Margin="390,401,0,0" VerticalAlignment="Top" Width="81" Foreground="White" FontWeight="Bold" FontFamily="Verdana" FontSize="9"/>
-        <Label Content="czytaj dalej..." HorizontalAlignment="Left" Height="29" Margin="390,281,0,0" VerticalAlignment="Top" Width="81" Foreground="White" FontWeight="Bold" FontFamily="Verdana" FontSize="9"/>
+        <Button x:Name="button1" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="390,169,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="10.667" Click="button1_Click"/>
+        <Button x:Name="button2" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="390,287,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="10.667" Click="button2_Click"/>
     </Grid>
 </Window>
