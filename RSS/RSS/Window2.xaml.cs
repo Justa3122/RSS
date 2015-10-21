@@ -47,7 +47,7 @@ namespace RSS
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.Close();
+            this.Close();
         }
         private void Button_Click2(object sender, RoutedEventArgs e)
         {

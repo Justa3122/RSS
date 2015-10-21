@@ -19,22 +19,46 @@ namespace RSS
 
         private void GetImageLink(string imgsrcFragment)
         {
-            ImageLink = imgsrcFragment.Substring(imgsrcFragment.IndexOf("src=") + 5, (imgsrcFragment.IndexOf("width") - 2) - (imgsrcFragment.IndexOf("src=") + 5));
+            if (imgsrcFragment.Contains("src="))
+            {
+                ImageLink = imgsrcFragment.Substring(imgsrcFragment.IndexOf("src=") + 5, (imgsrcFragment.IndexOf("width") - 2) - (imgsrcFragment.IndexOf("src=") + 5));
+            }
+            else
+            {
+                ImageLink = @"http://jopna.net/wp-content/plugins/special-recent-posts/images/no-thumb.png";
+            }
         }
         public Description(string description)
         {
             try
             {
+                Text = GetText(description);
                 ImgsrcFragment = description.Substring(description.IndexOf("<img"), description.IndexOf("/>") + 2);
-                Text = description.Substring(description.IndexOf("/>") + 2, description.IndexOf("<a") - (description.IndexOf("/>") + 2));
                 GetImageLink(ImgsrcFragment);
             }
             catch
             {
-                Text = description;
+                Text = GetText(description);
                 ImgsrcFragment = null;
-                ImageLink = null;
+                ImageLink = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkJOK5c3FY4LEGltI9O20KPVdKbJrS3rzoQ1TvzMoKDmagAzsCAQ";
             }
+        }
+        private string GetText(string textWithLinks)
+        {
+            string text = textWithLinks;
+            if (text.Contains("<"))
+            {
+                text = text.Remove(text.IndexOf("<"), (text.IndexOf(">") - text.IndexOf("<")+1));
+            }
+            if (text.Contains("<"))
+            {
+                text = text.Remove(text.IndexOf("<"), (text.IndexOf(">") - text.IndexOf("<") + 1));
+            }
+            if (text.Contains("<"))
+            {
+                text = text.Remove(text.IndexOf("<"), (text.IndexOf(">") - text.IndexOf("<") + 1));
+            }
+            return text;
         }
     }
 }

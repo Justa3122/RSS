@@ -15,19 +15,19 @@
             <Border.Effect>
                 <DropShadowEffect x:Name="DropShadowEffect" BlurRadius="30" ShadowDepth="0" RenderingBias="Quality"/>
             </Border.Effect>
-            <TextBlock Name="TextBlock1" HorizontalAlignment="Left" Height="81" Margin="140,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Background="#FF222A5B"/>
+            <TextBlock Name="TextBlock1" HorizontalAlignment="Left" Height="81" Margin="140,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
 
         </Border>
         <Rectangle Margin="22,22,22,0" Height="23" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown" Fill="{StaticResource ResourceKey=MainBackground}"/>
         <Button Style="{StaticResource ResourceKey=CloseButtonStyle}" VerticalContentAlignment="Center" FontWeight="Bold" Margin="0,25,25,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click_1" Background="#FF343434"/>
         <Image Name="image1" HorizontalAlignment="Left" Height="90" Margin="72,79,0,0" VerticalAlignment="Top" Width="95"/>
-        <Image Name="image2" HorizontalAlignment="Left" Height="90" Margin="72,309,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBlock Name="TextBlock2" HorizontalAlignment="Left" Height="81" Margin="163,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Background="#FF222A5B"/>
-        <TextBlock Name="TextBlock3" HorizontalAlignment="Left" Height="81" Margin="163,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Background="#FF222A5B"/>
-        <TextBlock Name="TextBlock4" HorizontalAlignment="Left" Height="81" Margin="163,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Background="#FF222A5B"/>
-        <TextBlock Name="TextBlock5" HorizontalAlignment="Left" Height="81" Margin="163,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Background="#FF222A5B"/>
+        <Image Name="image3" HorizontalAlignment="Left" Height="90" Margin="72,309,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBlock Name="TextBlock2" HorizontalAlignment="Left" Height="81" Margin="163,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock3" HorizontalAlignment="Left" Height="81" Margin="163,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock4" HorizontalAlignment="Left" Height="81" Margin="163,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock5" HorizontalAlignment="Left" Height="81" Margin="163,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
         <Button Style="{StaticResource ResourceKey=MinimizeButtonStyle}" FontWeight="Bold" FontStretch="UltraExpanded" Margin="0,25,45,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click"/>
-        <Image Name="image3" HorizontalAlignment="Left" Height="90" Margin="72,197,0,0" VerticalAlignment="Top" Width="95"/>
+        <Image Name="image2" HorizontalAlignment="Left" Height="90" Margin="72,197,0,0" VerticalAlignment="Top" Width="95"/>
 
         <Image Name="image4" HorizontalAlignment="Left" Height="90" Margin="72,422,0,0" VerticalAlignment="Top" Width="95"/>
         <Image Name="image5" HorizontalAlignment="Left" Height="90" Margin="72,532,0,0" VerticalAlignment="Top" Width="95"/>

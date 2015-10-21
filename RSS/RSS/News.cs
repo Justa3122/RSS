@@ -8,7 +8,7 @@ namespace RSS
 {
     public class News
     {
-        //Adres RSS: http://rss.wp.pl/s,kina,index.html
+        //Adres RSS: http://film.wp.pl/rss.xml?id=7
 
         public int NewsID { get; private set; }
         public string TitleOfNews { get; set; }
