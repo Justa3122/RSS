@@ -60,10 +60,6 @@ namespace RSS
                 DragMove();
             }
         }
-
-        private void button1win2_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-        }
+        
     }
 }

@@ -15,25 +15,29 @@
             <Border.Effect>
                 <DropShadowEffect x:Name="DropShadowEffect" BlurRadius="30" ShadowDepth="0" RenderingBias="Quality"/>
             </Border.Effect>
-            <TextBlock Name="TextBlock1" HorizontalAlignment="Left" Height="81" Margin="140,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+            <TextBlock Name="TextBlock1" HorizontalAlignment="Left" Height="50" Margin="140,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
 
         </Border>
         <Rectangle Margin="22,22,22,0" Height="23" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown" Fill="{StaticResource ResourceKey=MainBackground}"/>
         <Button Style="{StaticResource ResourceKey=CloseButtonStyle}" VerticalContentAlignment="Center" FontWeight="Bold" Margin="0,25,25,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click_1" Background="#FF343434"/>
         <Image Name="image1" HorizontalAlignment="Left" Height="90" Margin="72,79,0,0" VerticalAlignment="Top" Width="95"/>
         <Image Name="image3" HorizontalAlignment="Left" Height="90" Margin="72,309,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBlock Name="TextBlock2" HorizontalAlignment="Left" Height="81" Margin="163,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
-        <TextBlock Name="TextBlock3" HorizontalAlignment="Left" Height="81" Margin="163,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
-        <TextBlock Name="TextBlock4" HorizontalAlignment="Left" Height="81" Margin="163,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
-        <TextBlock Name="TextBlock5" HorizontalAlignment="Left" Height="81" Margin="163,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock2" HorizontalAlignment="Left" Height="50" Margin="165,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock3" HorizontalAlignment="Left" Height="50" Margin="163,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock4" HorizontalAlignment="Left" Height="50" Margin="163,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock5" HorizontalAlignment="Left" Height="50" Margin="163,532,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
         <Button Style="{StaticResource ResourceKey=MinimizeButtonStyle}" FontWeight="Bold" FontStretch="UltraExpanded" Margin="0,25,45,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click"/>
         <Image Name="image2" HorizontalAlignment="Left" Height="90" Margin="72,197,0,0" VerticalAlignment="Top" Width="95"/>
 
         <Image Name="image4" HorizontalAlignment="Left" Height="90" Margin="72,422,0,0" VerticalAlignment="Top" Width="95"/>
         <Image Name="image5" HorizontalAlignment="Left" Height="90" Margin="72,532,0,0" VerticalAlignment="Top" Width="95"/>
-        <Expander Name="expander" Header="KATEGORIE" HorizontalAlignment="Left" Height="101" Margin="57,27,0,0" VerticalAlignment="Top" Width="228" FontWeight="Bold" FontFamily="Verdana" FontSize="14" Foreground="#FFD63434" BorderBrush="{x:Null}" Background="{x:Null}">
-            <Grid Height="74" Margin="2,0,-2,0" Opacity="0.265"/>
-        </Expander>
-        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button1" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="390,169,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="button1_Click"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button1" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,134,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="button1_Click"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button2" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,254,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="button1_Click"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button3" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,364,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="button1_Click"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button4" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,484,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="button1_Click"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button5" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,590,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="button1_Click"/>
+        <ComboBox Name="comboBox" Margin="163,45,228,590" VerticalAlignment="Center" HorizontalAlignment="Center" Width="127" SelectionChanged="comboBox_SelectionChanged"> </ComboBox>
+        <Button x:Name="applyComboBox" Content="OK" HorizontalAlignment="Left" Height="20" Margin="300,47,0,0" VerticalAlignment="Top" Width="77" Click="applyComboBox_Click" BorderBrush="{x:Null}" Background="#FF222A5B" FontWeight="Bold" Foreground="White"/>
+        <Label x:Name="label" Content="Wybierz kanał:" HorizontalAlignment="Left" Height="30" Margin="58,42,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Foreground="White"/>
     </Grid>
 </Window>

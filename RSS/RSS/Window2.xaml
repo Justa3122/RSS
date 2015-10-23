@@ -30,6 +30,5 @@
         <TextBlock Name="TextBlock2Win2" HorizontalAlignment="Left" Height="29" Margin="41,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="21.333" Background="#FF222A5B" TextAlignment="Center"/>
         <TextBlock Name="TextBlock3Win2" HorizontalAlignment="Left" Height="15" Margin="41,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Background="#FF222A5B" TextAlignment="Center" LineHeight="10.667"/>
         <TextBlock Name="TextBlock4Win2" HorizontalAlignment="Left" Height="15" Margin="316,617,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Background="#FF222A5B" TextAlignment="Center" LineHeight="10.667"/>
-        <Button Style="{StaticResource ResourceKey=previousbackground}" x:Name="button" Content="wstecz" HorizontalAlignment="Left" Height="26" Margin="50,608,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="3.319,2.063" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontWeight="Bold" FontSize="16"/>
     </Grid>
 </Window>
