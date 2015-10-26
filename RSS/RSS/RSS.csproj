@@ -78,8 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Category.cs" />
-    <Compile Include="DataBase.cs" />
+    <Compile Include="NewsDB.cs" />
     <Compile Include="Description.cs" />
     <Compile Include="News.cs" />
     <Compile Include="RSSReader.cs" />

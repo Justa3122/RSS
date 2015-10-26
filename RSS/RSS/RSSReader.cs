@@ -21,7 +21,8 @@ namespace RSS
     public class RSSReader
     {
         public List<News> newsList = new List<News>();
-        public Channel channelInfo;
+        public Channel channel1;
+        public string channelLink;
         private XmlReader _xmlReader;
 
         /// <summary>
@@ -30,6 +31,7 @@ namespace RSS
         /// <param name="channelLink">Link do kanału, z którego zostaną pobrane wiadomości</param>
         public void ReadNews(string channelLink)
         {
+            this.channelLink = channelLink;
             _xmlReader = XmlReader.Create(channelLink);
             while (_xmlReader.Read())
             {
@@ -77,6 +79,7 @@ namespace RSS
                             _xmlReader.Read();
                             pubdate1 = _xmlReader.Value.Trim();
                             news = new News(1, title1, description1, link1, pubdate1);
+                            news.ChannelLink = this.channelLink;
                             return news;
                     }
                 }
@@ -95,35 +98,35 @@ namespace RSS
                     {
                         case "title":
                             _xmlReader.Read();
-                            channelInfo.title = _xmlReader.Value.Trim();
+                            channel1.title = _xmlReader.Value.Trim();
                             break;
                         case "link":
                             _xmlReader.Read();
-                            channelInfo.link = _xmlReader.Value.Trim();
+                            channel1.link = _xmlReader.Value.Trim();
                             break;
                         case "description":
                             _xmlReader.Read();
-                            channelInfo.description = _xmlReader.Value.Trim();
+                            channel1.description = _xmlReader.Value.Trim();
                             break;
                         case "language":
                             _xmlReader.Read();
-                            channelInfo.language = _xmlReader.Value.Trim();
+                            channel1.language = _xmlReader.Value.Trim();
                             break;
                         case "copyright":
                             _xmlReader.Read();
-                            channelInfo.copyright = _xmlReader.Value.Trim();
+                            channel1.copyright = _xmlReader.Value.Trim();
                             break;
                         case "pubDate":
                             _xmlReader.Read();
-                            channelInfo.pubdate = _xmlReader.Value.Trim();
+                            channel1.pubdate = _xmlReader.Value.Trim();
                             break;
                         case "generator":
                             _xmlReader.Read();
-                            channelInfo.generator = _xmlReader.Value.Trim();
+                            channel1.generator = _xmlReader.Value.Trim();
                             break;
                         case "webMaster":
                             _xmlReader.Read();
-                            channelInfo.webmaster = _xmlReader.Value.Trim();
+                            channel1.webmaster = _xmlReader.Value.Trim();
                             return;
                     }
                 }

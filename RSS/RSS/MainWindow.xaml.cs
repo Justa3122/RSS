@@ -21,15 +21,16 @@ namespace RSS
     public partial class MainWindow : Window
     {
         private List<Image> images = new List<Image>();
+        private int indexOfNews = 0;
         private List<TextBlock> textBlocks = new List<TextBlock>();
         private RSSReader rs = new RSSReader();
         private string linkOfChannel { get; set; }
+        private NewsDB database;
 
         public MainWindow()
         {
-           
             InitializeComponent();
-            comboBox.SelectedIndex = 1;
+            comboBox.SelectedIndex = 0;
             AddChannelsToList();
             LinkToChannel();
             PreparingWindowDesign();
@@ -39,7 +40,7 @@ namespace RSS
         #region wybieranie kanalu
         private void AddChannelsToList()
         {
-            comboBox.Items.Add("Bielsko-Biała");
+            comboBox.Items.Add("Bielsko - Biała");
             comboBox.Items.Add("Bydgoszcz");
             comboBox.Items.Add("Gdańsk");
             comboBox.Items.Add("Gdynia");
@@ -58,7 +59,7 @@ namespace RSS
         }
         private void LinkToChannel()
         {
-            if (comboBox.Text == "Bielsko-Biała")
+            if (comboBox.Text == "Bielsko - Biała")
             {
                 linkOfChannel = "http://film.wp.pl/rss.xml?id=7";
             }
@@ -142,6 +143,7 @@ namespace RSS
             TextBlock5.Text = null;
         }
         #endregion
+
         #region Kod do uzycia Rss i wypelniania okna
         private void PreparingWindowDesign()
         {
@@ -153,6 +155,9 @@ namespace RSS
             rs.ReadNews(linkOfChannel);
             ListingTextboxesAndImages();
             FillNewsInformation();
+            
+            //DodawanieDoBazy
+            AddToDB();
         }
         private void ListingTextboxesAndImages()
         {
@@ -165,8 +170,15 @@ namespace RSS
         {
             for (int i = 0; i < 5; i++)
             {
-                images[i].Source = new BitmapImage(new Uri(rs.newsList[i].DescriptionOfNews.ImageLink));
-                textBlocks[i].Text = rs.newsList[i].TitleOfNews;
+                if (rs.newsList[i + indexOfNews].DescriptionOfNews.ImageLink != @"http://i.wp.pl/a/f/film/001/16/97/0439716.jpg")
+                {
+                    images[i].Source = new BitmapImage(new Uri(rs.newsList[i + indexOfNews].DescriptionOfNews.ImageLink)); 
+                }
+                else
+                {
+                    images[i].Source = new BitmapImage(new Uri(@"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkJOK5c3FY4LEGltI9O20KPVdKbJrS3rzoQ1TvzMoKDmagAzsCAQ"));
+                }
+                textBlocks[i].Text = rs.newsList[i + indexOfNews].TitleOfNews;
             }
         }
         #endregion
@@ -189,11 +201,59 @@ namespace RSS
         }
         #endregion
 
-        public void button1_Click(object sender, RoutedEventArgs e)
+        private void AddToDB()
         {
-            Window2 okno2 = new Window2();
-            okno2.Show();
+            try
+            {
+                database = new NewsDB(false);
+                var a = from c in database.niusiki select new { tytul = c.TitleOfNews, linkacz = c.ChannelLink };
+                foreach (var item1 in rs.newsList)
+                {
+                    bool isInDatabase = false;
+                    foreach (var item2 in a)
+                    {
+                        if (item2.linkacz == item1.ChannelLink && item2.tytul == item1.TitleOfNews)
+                        {
+                            isInDatabase = true;
+                        }
+                    }
+                    if (!isInDatabase)
+                    {
+                        database.niusiki.Add(item1);
+                    }
+                }
+                database.SaveChanges();
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    database = new NewsDB(true);
+                    var a = from c in database.niusiki select new { tytul = c.TitleOfNews, linkacz = c.ChannelLink };
+                    foreach (var item1 in rs.newsList)
+                    {
+                        bool isInDatabase = false;
+                        foreach (var item2 in a)
+                        {
+                            if (item2.linkacz == item1.ChannelLink && item2.tytul == item1.TitleOfNews)
+                            {
+                                isInDatabase = true;
+                            }
+                        }
+                        if (!isInDatabase)
+                        {
+                            database.niusiki.Add(item1);
+                        }
+                    }
+                    database.SaveChanges();
+                }
+                catch (Exception)
+                {
+                }
+            }
+        
         }
+
         public void button2_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
@@ -201,16 +261,62 @@ namespace RSS
 
         private void applyComboBox_Click(object sender, RoutedEventArgs e)
         {
-
             DeleteNews();
             LinkToChannel();
             ShowNews();
-
         }
         
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+        #region Przyciski Niżej Wyżej
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (indexOfNews < rs.newsList.Count() -5)
+            {
+                indexOfNews += 1; 
+            }
+            DeleteNews();
+            ShowNews();
+        }
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (indexOfNews > 0)
+            {
+                indexOfNews -= 1;
+            }
+            DeleteNews();
+            ShowNews();
+        }
+    #endregion
+        #region Przyciski Czytaj dalej
+        private void czytaj_Click1(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(rs.newsList[indexOfNews]);
+            w2.Show();
+        }
+        private void czytaj_Click2(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(rs.newsList[indexOfNews+1]);
+            w2.Show();
+        }
+        private void czytaj_Click3(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(rs.newsList[indexOfNews+2]);
+            w2.Show();
+        }
+        private void czytaj_Click4(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(rs.newsList[indexOfNews+3]);
+            w2.Show();
+        }
+        private void czytaj_Click5(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(rs.newsList[indexOfNews+4]);
+            w2.Show();
+        }
+        #endregion
     }
 }
