@@ -20,27 +20,98 @@ namespace RSS
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<News> tmpNews;
+        public int indexOfNews;
+        public string getRegion;
+        
+        private List<TextBlock> textBlocks = new List<TextBlock>();
+        private DBCreator database;
+        private List<Image> images = new List<Image>();
+        
         public MainWindow()
         {
             InitializeComponent();
-            System.Windows.Media.Brush col1 = OuterGlow.BorderBrush;
-            DropShadowEffect.Color = ((SolidColorBrush)col1).Color;
-            DataBase db = new DataBase();
-            News wojna = new News(1, "wojna w rosji","<img src=/>- Jestem gotów poprzeć rząd mniejszościowy PiS, żeby nie destabilizować państwa - mówi w Kontrwywiadzie RMF FM szef ruchu Kukiz&#8217;15 Paweł Kukiz. - Chcę być potężnym językiem u wagi, który zmieni ustrój Polski, zmieni konstytucję, doprowadzi do tego, że Sejm zacznie pracować. Nie chcę rządzić po tych wyborach. Ja się nie nadaję na wicepremiera - dodaje. - Sondaże? Jakie sondaże, proszę pana. Patrzę na wyniki Petru i jestem przekonany, że on jest symulowany przez te sondaże - komentuje Kukiz. <a href=>wiadomosci.wp.pl</a>","dsadsa", "Mon, 12 Oct 2015 08:45:00 +0200");
-            Category swiat = new Category(1, "swiat");
-            swiat.AddNews(wojna);
-            db.Categories.Add(swiat);
-            db.SaveChanges();
+            database = new DBCreator();
+            getRegion = "";
+            comboBox.SelectedIndex = 0;
+            indexOfNews = 0;
+            AddChannelsToList();
+            PreparingWindowDesign();
         }
 
+        #region wybieranie kanalu
+        private void AddChannelsToList()
+        {
+            var a = database.db.Region.Select(x => x.RegionName).ToList();
+            foreach (var item in a)
+                comboBox.Items.Add(item);
+        }
+        private void DeleteNews()
+        {               
+            image1.Source = null;
+            image2.Source = null;
+            image3.Source = null;
+            image4.Source = null;
+            image5.Source = null;
+
+            TextBlock1.Text = null;
+            TextBlock2.Text = null;
+            TextBlock3.Text = null;
+            TextBlock4.Text = null;
+            TextBlock5.Text = null;
+        }
+        #endregion
+
+        #region Kod do uzycia Rss i wypelniania okna
+        private void PreparingWindowDesign()
+        {
+            System.Windows.Media.Brush col1 = OuterGlow.BorderBrush;
+            DropShadowEffect.Color = ((SolidColorBrush)col1).Color;
+        }
+        private void ShowNews()
+        {
+            DeleteNews();
+            ListingTextboxesAndImages();
+            FillNewsInformation();
+        }
+        private void ListingTextboxesAndImages()
+        {
+            images.Add(image1); images.Add(image2);images.Add(image3);
+            images.Add(image4);images.Add(image5);
+            textBlocks.Add(TextBlock1); textBlocks.Add(TextBlock2); textBlocks.Add(TextBlock3);
+            textBlocks.Add(TextBlock4); textBlocks.Add(TextBlock5);
+        }
+        private void FillNewsInformation()
+        {
+            tmpNews = database.db.News.Where(x => x.Region.RegionName == getRegion)
+                .OrderBy(x => x.NewsID)
+                .Skip(indexOfNews)
+                .Select(x => x)
+                .ToList();
+                
+            for (int i = 0; i < 5; i++)
+            {
+                if (tmpNews[i].DescriptionOfNews.ImageLink != @"http://i.wp.pl/a/f/film/001/16/97/0439716.jpg")
+                {
+                    images[i].Source = new BitmapImage(new Uri(tmpNews[i].DescriptionOfNews.ImageLink));
+                }
+                else
+                {
+                    images[i].Source = new BitmapImage(new Uri(@"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkJOK5c3FY4LEGltI9O20KPVdKbJrS3rzoQ1TvzMoKDmagAzsCAQ"));
+                }
+                textBlocks[i].Text = tmpNews[i].TitleOfNews;
+            }
+        }
+        #endregion
+
+        #region Obsluga okna (zamyk. minim. przesuwanie)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.Close();
+            Application.Current.Shutdown();
         }
         private void Rectangle_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -49,5 +120,69 @@ namespace RSS
                 DragMove();
             }
         }
+        #endregion
+
+        public void button2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void applyComboBox_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteNews();
+            getRegion = comboBox.SelectedItem.ToString();
+            ShowNews();       
+        }
+        
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        #region Przyciski Niżej Wyżej
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (indexOfNews < database.db.News.Where(x => x.Region.RegionName == getRegion).Count())
+            {
+                indexOfNews += 1;
+            }
+            ShowNews();
+        }
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (indexOfNews > 0)
+            {
+                indexOfNews -= 1;
+            }
+            ShowNews();
+        }
+    #endregion
+        #region Przyciski Czytaj dalej
+        private void czytaj_Click1(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(tmpNews[indexOfNews]);
+            w2.Show();
+        }
+        private void czytaj_Click2(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(tmpNews[indexOfNews + 1]);
+            w2.Show();
+        }
+        private void czytaj_Click3(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(tmpNews[indexOfNews + 2]);
+            w2.Show();
+        }
+        private void czytaj_Click4(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(tmpNews[indexOfNews + 3]);
+            w2.Show();
+        }
+        private void czytaj_Click5(object sender, RoutedEventArgs e)
+        {
+            Window2 w2 = new Window2(tmpNews[indexOfNews + 4]);
+            w2.Show();
+        }
+        #endregion
     }
 }

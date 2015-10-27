@@ -29,7 +29,52 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    <!--Tlo do 'czytaj dalej...'-->
+    <Style TargetType="{x:Type Button}" x:Key="button1background">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontFamily" Value="Calibri"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="CloseBorderStyle" CornerRadius="0" Background="Transparent"/>
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="czytaj dalej..."/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="CloseBorderStyle" Property="Background" Value="blue" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--Tlo do 'wstecz'-->
+    <Style TargetType="{x:Type Button}" x:Key="previousbackground">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontFamily" Value="Calibri"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="CloseBorderStyle" CornerRadius="0" Background="Transparent"/>
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="wstecz"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="CloseBorderStyle" Property="Background" Value="blue" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--Minimize Button Style-->
     <Style TargetType="{x:Type Button}" x:Key="MinimizeButtonStyle">
         <Setter Property="Foreground" Value="White" />

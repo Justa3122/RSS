@@ -8,14 +8,19 @@ namespace RSS
 {
     public class News
     {
-        //Adres RSS: http://rss.wp.pl/s,kina,index.html
-
         public int NewsID { get; private set; }
-        public string TitleOfNews { get; set; }
-        public string LinkToWebsite { get; set; }
-        public DateTime DateOfPublication { get; set; }
-        public Description DescriptionOfNews { get; set; }
-        
+        public string TitleOfNews { get; private set; }
+        public string LinkToWebsite { get; private set; }
+        public DateTime DateOfPublication { get; private set; }
+        public Description DescriptionOfNews { get; private set; }
+
+        public int RegionID { get; set; }
+        public Region Region { get; set; }
+
+        public News()
+        {
+
+        }
         public News(int newsId, string title, string description, string link, string pubdate)
         {
             this.NewsID = newsId;
