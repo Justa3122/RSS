@@ -126,7 +126,6 @@ namespace RSS
         {
             this.Hide();
         }
-
         private void applyComboBox_Click(object sender, RoutedEventArgs e)
         {
             DeleteNews();
