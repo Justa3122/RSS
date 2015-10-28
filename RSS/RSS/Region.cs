@@ -18,7 +18,6 @@ namespace RSS
         {
 
         }
-
         public Region(int regionID, string regionName, string linkToChannel)
         {
             this.RegionID = regionID;

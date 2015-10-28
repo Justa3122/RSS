@@ -18,6 +18,5 @@ namespace RSS
         }
         public DbSet<Region> Region { get; set; }
         public DbSet<News> News { get; set; }
-
     }
 }
