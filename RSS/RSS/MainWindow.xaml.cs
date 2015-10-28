@@ -20,23 +20,26 @@ namespace RSS
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<News> tmpNews;
         public int indexOfNews;
-        public string getRegion;
         
-        private List<TextBlock> textBlocks = new List<TextBlock>();
+        public List<News> tmpNews;
+        
+        private List<TextBlock> textBlocks;
         private DBCreator database;
-        private List<Image> images = new List<Image>();
+        private List<Image> images;
         
         public MainWindow()
         {
             InitializeComponent();
             database = new DBCreator();
-            getRegion = "";
-            comboBox.SelectedIndex = 0;
-            indexOfNews = 0;
+            images = new List<Image>();
+            textBlocks = new List<TextBlock>();
+
             AddChannelsToList();
             PreparingWindowDesign();
+            
+            comboBox.SelectedIndex = 0;
+            indexOfNews = 0;
         }
 
         #region wybieranie kanalu
@@ -83,12 +86,6 @@ namespace RSS
         }
         private void FillNewsInformation()
         {
-            tmpNews = database.db.News.Where(x => x.Region.RegionName == getRegion)
-                .OrderBy(x => x.NewsID)
-                .Skip(indexOfNews)
-                .Select(x => x)
-                .ToList();
-                
             for (int i = 0; i < 5; i++)
             {
                 if (tmpNews[i].DescriptionOfNews.ImageLink != @"http://i.wp.pl/a/f/film/001/16/97/0439716.jpg")
@@ -128,8 +125,9 @@ namespace RSS
         }
         private void applyComboBox_Click(object sender, RoutedEventArgs e)
         {
-            DeleteNews();
-            getRegion = comboBox.SelectedItem.ToString();
+            tmpNews = database.db.News.Where(x => x.Region.RegionName == comboBox.SelectedItem.ToString())
+                .OrderBy(x => x.NewsID).Select(x => x).ToList();
+           
             ShowNews();       
         }
         
@@ -141,7 +139,7 @@ namespace RSS
         #region Przyciski Niżej Wyżej
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (indexOfNews < database.db.News.Where(x => x.Region.RegionName == getRegion).Count())
+            if (indexOfNews < 10)
             {
                 indexOfNews += 1;
             }
