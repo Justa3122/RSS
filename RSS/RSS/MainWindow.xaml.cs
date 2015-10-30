@@ -22,7 +22,9 @@ namespace RSS
     {
         public int indexOfNews;
         
+        public List<News> newsFromRegion;
         public List<News> tmpNews;
+        
         
         private List<TextBlock> textBlocks;
         private DBCreator database;
@@ -86,7 +88,9 @@ namespace RSS
         }
         private void FillNewsInformation()
         {
-            for (int i = 0; i < 5; i++)
+            var tmpNews = newsFromRegion.OrderBy(x => x.NewsID).Skip(indexOfNews).Take(5).ToList();
+
+            for (int i = 0; i < tmpNews.Count; i++)
             {
                 if (tmpNews[i].DescriptionOfNews.ImageLink != @"http://i.wp.pl/a/f/film/001/16/97/0439716.jpg")
                 {
@@ -125,10 +129,11 @@ namespace RSS
         }
         private void applyComboBox_Click(object sender, RoutedEventArgs e)
         {
-            tmpNews = database.db.News.Where(x => x.Region.RegionName == comboBox.SelectedItem.ToString())
-                .OrderBy(x => x.NewsID).Select(x => x).ToList();
-           
-            ShowNews();       
+            newsFromRegion = database.db.News.Where(x => x.Region.RegionName == comboBox.SelectedItem.ToString())
+                .OrderBy(x => x.NewsID).Select(x => x).ToList();       
+            
+            ShowNews();
+
         }
         
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -139,7 +144,7 @@ namespace RSS
         #region Przyciski Niżej Wyżej
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (indexOfNews < 10)
+            if (indexOfNews < newsFromRegion.Count -5)
             {
                 indexOfNews += 1;
             }
@@ -157,27 +162,27 @@ namespace RSS
         #region Przyciski Czytaj dalej
         private void czytaj_Click1(object sender, RoutedEventArgs e)
         {
-            Window2 w2 = new Window2(tmpNews[indexOfNews]);
+            Window2 w2 = new Window2(tmpNews[0]);
             w2.Show();
         }
         private void czytaj_Click2(object sender, RoutedEventArgs e)
         {
-            Window2 w2 = new Window2(tmpNews[indexOfNews + 1]);
+            Window2 w2 = new Window2(tmpNews[1]);
             w2.Show();
         }
         private void czytaj_Click3(object sender, RoutedEventArgs e)
         {
-            Window2 w2 = new Window2(tmpNews[indexOfNews + 2]);
+            Window2 w2 = new Window2(tmpNews[2]);
             w2.Show();
         }
         private void czytaj_Click4(object sender, RoutedEventArgs e)
         {
-            Window2 w2 = new Window2(tmpNews[indexOfNews + 3]);
+            Window2 w2 = new Window2(tmpNews[3]);
             w2.Show();
         }
         private void czytaj_Click5(object sender, RoutedEventArgs e)
         {
-            Window2 w2 = new Window2(tmpNews[indexOfNews + 4]);
+            Window2 w2 = new Window2(tmpNews[4]);
             w2.Show();
         }
         #endregion
