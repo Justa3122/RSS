@@ -27,8 +27,9 @@ namespace RSS
         
         
         private List<TextBlock> textBlocks;
-        private DBCreator database;
         private List<Image> images;
+        private List<Button> buttons;
+        private DBCreator database;
         
         public MainWindow()
         {
@@ -36,7 +37,10 @@ namespace RSS
             database = new DBCreator();
             images = new List<Image>();
             textBlocks = new List<TextBlock>();
+            buttons = new List<Button>();
 
+            ListingTextboxesImagesAndButtons();
+            DeleteNews();
             AddChannelsToList();
             PreparingWindowDesign();
             
@@ -52,18 +56,15 @@ namespace RSS
                 comboBox.Items.Add(item);
         }
         private void DeleteNews()
-        {               
-            image1.Source = null;
-            image2.Source = null;
-            image3.Source = null;
-            image4.Source = null;
-            image5.Source = null;
-
-            TextBlock1.Text = null;
-            TextBlock2.Text = null;
-            TextBlock3.Text = null;
-            TextBlock4.Text = null;
-            TextBlock5.Text = null;
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                images[i].Source = null;
+                images[i].Visibility = Visibility.Collapsed;
+                textBlocks[i].Text = null;
+                textBlocks[i].Visibility = Visibility.Collapsed;
+                buttons[i].Visibility = Visibility.Collapsed;
+            }
         }
         #endregion
 
@@ -74,33 +75,44 @@ namespace RSS
             DropShadowEffect.Color = ((SolidColorBrush)col1).Color;
         }
         private void ShowNews()
-        {
+        {          
             DeleteNews();
-            ListingTextboxesAndImages();
             FillNewsInformation();
         }
-        private void ListingTextboxesAndImages()
+        private void ListingTextboxesImagesAndButtons()
         {
             images.Add(image1); images.Add(image2);images.Add(image3);
             images.Add(image4);images.Add(image5);
             textBlocks.Add(TextBlock1); textBlocks.Add(TextBlock2); textBlocks.Add(TextBlock3);
             textBlocks.Add(TextBlock4); textBlocks.Add(TextBlock5);
+            buttons.Add(button1); buttons.Add(button2); buttons.Add(button3);
+            buttons.Add(button4); buttons.Add(button5);
         }
         private void FillNewsInformation()
         {
-            tmpNews = newsFromRegion.OrderBy(x => x.NewsID).Skip(indexOfNews).Take(5).ToList();
-
-            for (int i = 0; i < tmpNews.Count; i++)
+            tmpNews = newsFromRegion.OrderBy(x => x.NewsID).Skip(indexOfNews).Take(5).ToList(); 
+            
+           for (int i = 0; i < 5; i++)
             {
-                if (tmpNews[i].DescriptionOfNews.ImageLink != @"http://i.wp.pl/a/f/film/001/16/97/0439716.jpg")
+                try
                 {
-                    images[i].Source = new BitmapImage(new Uri(tmpNews[i].DescriptionOfNews.ImageLink));
+                    if (tmpNews[i].DescriptionOfNews.ImageLink != @"http://i.wp.pl/a/f/film/001/16/97/0439716.jpg")
+                    {
+                        images[i].Source = new BitmapImage(new Uri(tmpNews[i].DescriptionOfNews.ImageLink));
+                    }
+                    else
+                    {
+                        images[i].Source = new BitmapImage(new Uri(@"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkJOK5c3FY4LEGltI9O20KPVdKbJrS3rzoQ1TvzMoKDmagAzsCAQ"));
+                    }
+                    textBlocks[i].Text = tmpNews[i].TitleOfNews;
+                    images[i].Visibility = Visibility.Visible;
+                    textBlocks[i].Visibility = Visibility.Visible;
+                    buttons[i].Visibility = Visibility.Visible;
                 }
-                else
+                catch (Exception)
                 {
-                    images[i].Source = new BitmapImage(new Uri(@"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkJOK5c3FY4LEGltI9O20KPVdKbJrS3rzoQ1TvzMoKDmagAzsCAQ"));
                 }
-                textBlocks[i].Text = tmpNews[i].TitleOfNews;
+
             }
         }
         #endregion
@@ -133,13 +145,9 @@ namespace RSS
                 .OrderBy(x => x.NewsID).Select(x => x).ToList();       
             
             ShowNews();
-
         }
         
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
 
         #region Przyciski Niżej Wyżej
         private void Button_Click_2(object sender, RoutedEventArgs e)
