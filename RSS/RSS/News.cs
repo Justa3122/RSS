@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RSS
 {
+    /// <summary>
+    /// Klasa reprezentująca najważniejsze elementy wiadomości pochodzących z RSS wp.pl
+    /// </summary>
     public class News
     {
         public int NewsID { get; private set; }

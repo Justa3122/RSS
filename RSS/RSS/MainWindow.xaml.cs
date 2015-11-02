@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace RSS
 {
     /// <summary>
@@ -96,33 +97,31 @@ namespace RSS
             {
                 try
                 {
-                    if (tmpNews[i].DescriptionOfNews.ImageLink != @"http://i.wp.pl/a/f/film/001/16/97/0439716.jpg")
-                    {
-                        images[i].Source = new BitmapImage(new Uri(tmpNews[i].DescriptionOfNews.ImageLink));
-                    }
-                    else
-                    {
-                        images[i].Source = new BitmapImage(new Uri(@"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkJOK5c3FY4LEGltI9O20KPVdKbJrS3rzoQ1TvzMoKDmagAzsCAQ"));
-                    }
+                    BitmapImage bitImg = new BitmapImage();
+                    bitImg.BeginInit();
+                    bitImg.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
+                    bitImg.UriSource = new Uri(tmpNews[i].DescriptionOfNews.ImageLink);
+                    bitImg.EndInit();
+                    images[i].Source = bitImg;
                     textBlocks[i].Text = tmpNews[i].TitleOfNews;
                     images[i].Visibility = Visibility.Visible;
                     textBlocks[i].Visibility = Visibility.Visible;
                     buttons[i].Visibility = Visibility.Visible;
+
                 }
                 catch (Exception)
                 {
                 }
-
             }
         }
         #endregion
 
         #region Obsluga okna (zamyk. minim. przesuwanie)
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
@@ -135,10 +134,6 @@ namespace RSS
         }
         #endregion
 
-        public void button2_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-        }
         private void applyComboBox_Click(object sender, RoutedEventArgs e)
         {
             newsFromRegion = database.db.News.Where(x => x.Region.RegionName == comboBox.SelectedItem.ToString())
@@ -146,11 +141,9 @@ namespace RSS
             
             ShowNews();
         }
-        
-
 
         #region Przyciski Niżej Wyżej
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Nizej_Click(object sender, RoutedEventArgs e)
         {
             if (indexOfNews < newsFromRegion.Count -5)
             {
@@ -158,7 +151,7 @@ namespace RSS
             }
             ShowNews();
         }
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Wyzej_Click(object sender, RoutedEventArgs e)
         {
             if (indexOfNews > 0)
             {
@@ -195,4 +188,5 @@ namespace RSS
         }
         #endregion
     }
+
 }

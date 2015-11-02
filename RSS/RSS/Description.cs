@@ -8,8 +8,8 @@ using System.Data.Entity;
 namespace RSS
 {
     /// <summary>
-    /// Klasa służy do odczytu znacznika <description>, ponieważ zawiera ona: opis, obrazek oraz link
-    /// przez co XmlReader sobie z tym nie radzi.
+    /// Klasa służy do odczytu poszczególnych elementów <description>
+    /// Rozdziela go na opis oraz link do obrazka
     /// </summary>
     public class Description
     {
@@ -51,17 +51,12 @@ namespace RSS
         private string GetText(string textWithLinks)
         {
             string text = textWithLinks;
-            if (text.Contains("<"))
+            for (int i = 0; i < 3; i++)
             {
-                text = text.Remove(text.IndexOf("<"), (text.IndexOf(">") - text.IndexOf("<")+1));
-            }
-            if (text.Contains("<"))
-            {
-                text = text.Remove(text.IndexOf("<"), (text.IndexOf(">") - text.IndexOf("<") + 1));
-            }
-            if (text.Contains("<"))
-            {
-                text = text.Remove(text.IndexOf("<"), (text.IndexOf(">") - text.IndexOf("<") + 1));
+                if (text.Contains("<"))
+                {
+                    text = text.Remove(text.IndexOf("<"), (text.IndexOf(">") - text.IndexOf("<") + 1));
+                } 
             }
             return text;
         }

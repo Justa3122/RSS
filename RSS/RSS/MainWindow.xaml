@@ -19,14 +19,14 @@
 
         </Border>
         <Rectangle Margin="22,22,22,0" Height="23" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown" Fill="{StaticResource ResourceKey=MainBackground}"/>
-        <Button Style="{StaticResource ResourceKey=CloseButtonStyle}" VerticalContentAlignment="Center" FontWeight="Bold" Margin="0,25,25,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click_1" Background="#FF343434"/>
+        <Button Style="{StaticResource ResourceKey=CloseButtonStyle}" VerticalContentAlignment="Center" FontWeight="Bold" Margin="0,25,25,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="CloseButton_Click" Background="#FF343434"/>
         <Image Name="image1" HorizontalAlignment="Left" Height="90" Margin="72,79,0,0" VerticalAlignment="Top" Width="95"/>
         <Image Name="image3" HorizontalAlignment="Left" Height="90" Margin="72,309,0,0" VerticalAlignment="Top" Width="95"/>
         <TextBlock Name="TextBlock2" HorizontalAlignment="Left" Height="50" Margin="165,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
         <TextBlock Name="TextBlock3" HorizontalAlignment="Left" Height="50" Margin="163,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
         <TextBlock Name="TextBlock4" HorizontalAlignment="Left" Height="50" Margin="163,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
         <TextBlock Name="TextBlock5" HorizontalAlignment="Left" Height="50" Margin="163,532,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
-        <Button Style="{StaticResource ResourceKey=MinimizeButtonStyle}" FontWeight="Bold" FontStretch="UltraExpanded" Margin="0,25,45,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click"/>
+        <Button Style="{StaticResource ResourceKey=MinimizeButtonStyle}" FontWeight="Bold" FontStretch="UltraExpanded" Margin="0,25,45,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="MinimizeButton_Click"/>
         <Image Name="image2" HorizontalAlignment="Left" Height="90" Margin="72,197,0,0" VerticalAlignment="Top" Width="95"/>
 
         <Image Name="image4" HorizontalAlignment="Left" Height="90" Margin="72,422,0,0" VerticalAlignment="Top" Width="95"/>
@@ -39,8 +39,8 @@
         <ComboBox Name="comboBox" Margin="163,45,228,590" VerticalAlignment="Center" HorizontalAlignment="Center" Width="127"></ComboBox>
         <Button x:Name="applyComboBox" Style="{StaticResource ResourceKey=okStyle}" Content="OK" HorizontalAlignment="Left" Height="20" Margin="300,47,0,0" VerticalAlignment="Top" Width="77" Click="applyComboBox_Click" BorderBrush="{x:Null}" Background="#FF222A5B" FontWeight="Bold" Foreground="White"/>
         <Label x:Name="label" Content="Wybierz kanał:" HorizontalAlignment="Left" Height="30" Margin="58,42,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Foreground="White"/>
-        <Button Style="{StaticResource ResourceKey=nizejStyle}" HorizontalAlignment="Left" Height="21" Margin="408,606,0,0" VerticalAlignment="Top" Width="73" Click="Button_Click_2"/>
-        <Button Style="{StaticResource ResourceKey=wyzejStyle}" HorizontalAlignment="Left" Height="21" Margin="327,606,0,0" VerticalAlignment="Top" Width="73" Click="Button_Click_3"/>
+        <Button Style="{StaticResource ResourceKey=nizejStyle}" HorizontalAlignment="Left" Height="21" Margin="408,606,0,0" VerticalAlignment="Top" Width="73" Click="Nizej_Click"/>
+        <Button Style="{StaticResource ResourceKey=wyzejStyle}" HorizontalAlignment="Left" Height="21" Margin="327,606,0,0" VerticalAlignment="Top" Width="73" Click="Wyzej_Click"/>
 
     </Grid>
 </Window>

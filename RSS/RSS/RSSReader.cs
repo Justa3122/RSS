@@ -7,6 +7,9 @@ using System.Xml;
 
 namespace RSS
 {
+    /// <summary>
+    /// Struktura zawierająca wszystkie informacje o kanale RSS
+    /// </summary>
     public struct Channel
     {
         public string title,
@@ -19,23 +22,24 @@ namespace RSS
                       webmaster;
     }
 
+    /// <summary>
+    /// Klasa obsługująca odczyt wiadomości RSS portalu wp.pl
+    /// </summary>
     public class RSSReader
     {
         public Channel channel1;
 
+        private string channelLink;
+        private XmlReader _xmlReader;
+                
         public RSSReader(string channelLink)
         {
             this.channelLink = channelLink;
         }
-
-        private string channelLink;
-        private XmlReader _xmlReader;
-                
         
         /// <summary>
-        /// Wczytuje najnowsze wiadomości i dodaje je do list newsList
+        /// Wczytuje najnowsze wiadomości i zwraca je w postaci List<News>
         /// </summary>
-        /// <param name="channelLink">Link do kanału, z którego zostaną pobrane wiadomości</param>
         public List<News> ReadNews()
         {
             List<News> newsList = new List<News>();
