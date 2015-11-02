@@ -88,7 +88,7 @@ namespace RSS
         }
         private void FillNewsInformation()
         {
-            var tmpNews = newsFromRegion.OrderBy(x => x.NewsID).Skip(indexOfNews).Take(5).ToList();
+            tmpNews = newsFromRegion.OrderBy(x => x.NewsID).Skip(indexOfNews).Take(5).ToList();
 
             for (int i = 0; i < tmpNews.Count; i++)
             {
