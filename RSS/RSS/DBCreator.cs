@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RSS
 {
+    /// <summary>
+    /// Tworzenie i wypełanianie bazy danych, przechowującej dane pobierane z kanału RSS
+    /// </summary>
     public class DBCreator
     {
         public NewsDB db { get; private set; }

@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace RSS
 {
+    /// <summary>
+    /// Klasa zawierajaca listę kanałów
+    /// </summary>
     public static class LinksDB
     {
+        /// <summary>
+        /// Funkcja zwracająca kolekcję miast i linków do ich kanałów
+        /// </summary>
+        /// <returns></returns>
         public static List<Region> GetChannels()
         {
             return new List<Region>

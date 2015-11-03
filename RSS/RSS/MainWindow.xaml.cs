@@ -187,6 +187,17 @@ namespace RSS
             w2.Show();
         }
         #endregion
+
+        private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+
+            myMediaElement1_Copy1.Position = TimeSpan.FromMilliseconds(1);
+            myMediaElement1_Copy2.Position = TimeSpan.FromMilliseconds(1);
+            myMediaElement1_Copy3.Position = TimeSpan.FromMilliseconds(1);
+            //myMediaElement1_Copy5.Position = TimeSpan.FromMilliseconds(1);
+        }
+    
+    
     }
 
 }

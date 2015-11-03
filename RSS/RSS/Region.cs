@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RSS
 {
+    /// <summary>
+    /// Klasa reprezentująca każdy kanał
+    /// </summary>
     public class Region
     {
         public int RegionID { get; private set; }

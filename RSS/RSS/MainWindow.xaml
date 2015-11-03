@@ -9,38 +9,85 @@
         <ResourceDictionary Source="Resources/MainResources.xaml"/>
     </Window.Resources>
 
-    <Grid Margin="0,0,0,27">
-        <Border x:Name="OuterGlow" Margin="19,21,21,14" BorderBrush="{StaticResource ResourceKey=DropShadowEffectColor}" 
-                BorderThickness="1" Background="#FF232323">
+    <Grid Margin="0,0,0,27" ClipToBounds="True" SnapsToDevicePixels="True" Focusable="True" AllowDrop="True">
+
+        <Border x:Name="OuterGlow" Margin="19,21,21,14"  BorderBrush="{StaticResource ResourceKey=DropShadowEffectColor}" 
+                BorderThickness="1" Background="Black" Focusable="True">
             <Border.Effect>
                 <DropShadowEffect x:Name="DropShadowEffect" BlurRadius="30" ShadowDepth="0" RenderingBias="Quality"/>
             </Border.Effect>
-            <TextBlock Name="TextBlock1" HorizontalAlignment="Left" Height="50" Margin="140,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
 
         </Border>
-        <Rectangle Margin="22,22,22,0" Height="23" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown" Fill="{StaticResource ResourceKey=MainBackground}"/>
+        <Image Source="C:\Users\de$po\Desktop\Katalog bez nazwy\RSS-master\RSS\RSS\pliki\xy1.jpg" Margin="42,177,-96,133" HorizontalAlignment="Left" Width="572" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.257"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <BlurEffect></BlurEffect>
+            </Image.Effect>
+        </Image>
+        <Rectangle  Margin="23,25,25,0"  Height="23" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown" Fill="{StaticResource ResourceKey=MainBackground}"/>
         <Button Style="{StaticResource ResourceKey=CloseButtonStyle}" VerticalContentAlignment="Center" FontWeight="Bold" Margin="0,25,25,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="CloseButton_Click" Background="#FF343434"/>
-        <Image Name="image1" HorizontalAlignment="Left" Height="90" Margin="72,79,0,0" VerticalAlignment="Top" Width="95"/>
-        <Image Name="image3" HorizontalAlignment="Left" Height="90" Margin="72,309,0,0" VerticalAlignment="Top" Width="95"/>
+        <Image Name="image1" HorizontalAlignment="Left" Height="90" Margin="46,78,0,0" VerticalAlignment="Top" Width="95"/>
+        <Image Name="image3" HorizontalAlignment="Left" Height="90" Margin="46,309,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBlock Name="TextBlock1" HorizontalAlignment="Left" Height="50" Margin="165,78,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
         <TextBlock Name="TextBlock2" HorizontalAlignment="Left" Height="50" Margin="165,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
-        <TextBlock Name="TextBlock3" HorizontalAlignment="Left" Height="50" Margin="163,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
-        <TextBlock Name="TextBlock4" HorizontalAlignment="Left" Height="50" Margin="163,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
-        <TextBlock Name="TextBlock5" HorizontalAlignment="Left" Height="50" Margin="163,532,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock3" HorizontalAlignment="Left" Height="50" Margin="165,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock4" HorizontalAlignment="Left" Height="50" Margin="165,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
+        <TextBlock Name="TextBlock5" HorizontalAlignment="Left" Height="50" Margin="165,532,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="18" Background="#FF222A5B"/>
         <Button Style="{StaticResource ResourceKey=MinimizeButtonStyle}" FontWeight="Bold" FontStretch="UltraExpanded" Margin="0,25,45,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="MinimizeButton_Click"/>
-        <Image Name="image2" HorizontalAlignment="Left" Height="90" Margin="72,197,0,0" VerticalAlignment="Top" Width="95"/>
+        <Image Name="image2" HorizontalAlignment="Left" Height="90" Margin="46,197,0,0" VerticalAlignment="Top" Width="95"/>
 
-        <Image Name="image4" HorizontalAlignment="Left" Height="90" Margin="72,422,0,0" VerticalAlignment="Top" Width="95"/>
-        <Image Name="image5" HorizontalAlignment="Left" Height="90" Margin="72,532,0,0" VerticalAlignment="Top" Width="95"/>
-        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button1" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,134,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click1"/>
-        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button2" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,254,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click2"/>
-        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button3" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,364,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click3"/>
-        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button4" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,484,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click4"/>
-        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button5" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,590,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click5"/>
-        <ComboBox Name="comboBox" Margin="163,45,228,590" VerticalAlignment="Center" HorizontalAlignment="Center" Width="127"></ComboBox>
-        <Button x:Name="applyComboBox" Style="{StaticResource ResourceKey=okStyle}" Content="OK" HorizontalAlignment="Left" Height="20" Margin="300,47,0,0" VerticalAlignment="Top" Width="77" Click="applyComboBox_Click" BorderBrush="{x:Null}" Background="#FF222A5B" FontWeight="Bold" Foreground="White"/>
-        <Label x:Name="label" Content="Wybierz kanał:" HorizontalAlignment="Left" Height="30" Margin="58,42,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Foreground="White"/>
-        <Button Style="{StaticResource ResourceKey=nizejStyle}" HorizontalAlignment="Left" Height="21" Margin="408,606,0,0" VerticalAlignment="Top" Width="73" Click="Nizej_Click"/>
-        <Button Style="{StaticResource ResourceKey=wyzejStyle}" HorizontalAlignment="Left" Height="21" Margin="327,606,0,0" VerticalAlignment="Top" Width="73" Click="Wyzej_Click"/>
+        <Image Name="image4" HorizontalAlignment="Left" Height="90" Margin="46,422,0,0" VerticalAlignment="Top" Width="95"/>
+        <Image Name="image5" HorizontalAlignment="Left" Height="90" Margin="46,532,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button1" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,147,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click1"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button2" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,266,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click2"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button3" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,378,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click3"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button4" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,491,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click4"/>
+        <Button Style="{StaticResource ResourceKey=button1background}" x:Name="button5" Content="czytaj dalej..." HorizontalAlignment="Left" Height="21" Margin="164,601,0,0" VerticalAlignment="Top" Width="76" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="13" Click="czytaj_Click5"/>
+        <ComboBox Name="comboBox" Margin="165,50,196,585" VerticalAlignment="Center" HorizontalAlignment="Center" Width="157"></ComboBox>
+        <Button x:Name="applyComboBox" Content="OK" HorizontalAlignment="Left" Height="20" Margin="327,50,0,0" VerticalAlignment="Top" Width="77" Click="applyComboBox_Click" BorderBrush="{x:Null}" Background="#FF222A5B" FontWeight="Bold" Foreground="White">
+        </Button>
+        <Button Name="wgore" HorizontalAlignment="Left" Height="53" Margin="410,587,0,0" VerticalAlignment="Top" Width="52" Click="Nizej_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+            <MediaElement Source="C:\Users\de$po\Desktop\Katalog bez nazwy\RSS-master\RSS\RSS\pliki\2.gif" Height="43" Width="47" x:Name="myMediaElement1_Copy3" MediaEnded="MediaElement_MediaEnded" LoadedBehavior="Play" RenderTransformOrigin="0.5,0.5">
+                <MediaElement.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="179.742"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </MediaElement.RenderTransform>
 
+            </MediaElement>
+        </Button>
+        <Button Name="Wdol" HorizontalAlignment="Left" Height="53" Margin="327,587,0,0" VerticalAlignment="Top" Width="52" Click="Wyzej_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+            <MediaElement Source="C:\Users\de$po\Desktop\Katalog bez nazwy\RSS-master\RSS\RSS\pliki\2.gif" Height="43" x:Name="myMediaElement1_Copy2" MediaEnded="MediaElement_MediaEnded" LoadedBehavior="Play" Width="47"/>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="29" Margin="45,53,0,0" Source="C:\Users\de$po\Desktop\Katalog bez nazwy\RSS-master\RSS\RSS\pliki\kanal.jpg" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.463,0.467">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.044"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <MediaElement HorizontalAlignment="Left" Height="25" Margin="132,53,0,0" x:Name="myMediaElement1_Copy1" MediaEnded="MediaElement_MediaEnded" LoadedBehavior="Play" Source="C:\Users\de$po\Desktop\Katalog bez nazwy\RSS-master\RSS\RSS\pliki\neon-0007.gif" VerticalAlignment="Top" Width="25"   RenderTransformOrigin="0.191,0.858" >
+            <MediaElement.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-11.444"/>
+                    <TranslateTransform X="2.632" Y="2.209"/>
+                </TransformGroup>
+            </MediaElement.RenderTransform>
+        </MediaElement>
     </Grid>
 </Window>

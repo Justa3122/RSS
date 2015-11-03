@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace RSS
 {
+    /// <summary>
+    /// Określenie nazwy pliku bazy danych i stworzenie dwóch tabeli
+    /// </summary>
     public class NewsDB: DbContext
     {
         public NewsDB(bool error) : base("NewsDB")

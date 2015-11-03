@@ -67,5 +67,11 @@ namespace RSS
             }
         }
 	    #endregion
+        private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+
+
+            myMediaElement1_Copy5.Position = TimeSpan.FromMilliseconds(1);
+        }
     }
 }

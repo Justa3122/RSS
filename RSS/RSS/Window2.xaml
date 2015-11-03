@@ -8,27 +8,38 @@
         Title="Window2" Height="683.912" Width="517.657" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent" 
         ShowInTaskbar="True" Foreground="Red">
-
     <Window.Resources>
         <ResourceDictionary Source="Resources/MainResources.xaml"/>
     </Window.Resources>
 
     <Grid Margin="0,0,0,27">
         <Border x:Name="OuterGlow" Margin="30,22,10,13"  BorderBrush="{StaticResource ResourceKey=DropShadowEffectColor}" 
-                BorderThickness="1" Background="#FF232323">
+                BorderThickness="1" Background="Black">
             <Border.Effect>
                 <DropShadowEffect x:Name="DropShadowEffect2" BlurRadius="30" ShadowDepth="0" RenderingBias="Quality"/>
             </Border.Effect>
-            <Label x:Name="label" Content="Dodano:" HorizontalAlignment="Left" Height="26" Margin="226,588,0,0" VerticalAlignment="Top" Width="57" FontWeight="Bold" Foreground="White"/>
-
         </Border>
-        <Rectangle Margin="32,25,12,0" Height="23" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown2" Fill="{StaticResource ResourceKey=MainBackground}"/>
+        <MediaElement Source="C:\Users\de$po\Desktop\Katalog bez nazwy\RSS-Final\RSS-Final\RSS\RSS\pliki\back3.gif" RenderTransformOrigin="0.5,0.5" Margin="-32,72,-51,48" x:Name="myMediaElement1_Copy5"  MediaEnded="MediaElement_MediaEnded" LoadedBehavior="Play" HorizontalAlignment="Left" Width="601">
+            <MediaElement.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-89.739"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </MediaElement.RenderTransform>
+            <MediaElement.Effect>
+                <BlurEffect>
+                </BlurEffect>
+            </MediaElement.Effect>
+        </MediaElement>
+        <Rectangle Margin="41,25,19,0" Height="23" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown2" Fill="{StaticResource ResourceKey=MainBackground}"/>
         <Button Style="{StaticResource ResourceKey=CloseButtonStyle}" VerticalContentAlignment="Center" FontWeight="Bold" Margin="0,25,19,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click_2" Background="#FF343434"/>
         <Button Style="{StaticResource ResourceKey=MinimizeButtonStyle}" FontWeight="Bold" FontStretch="UltraExpanded" Margin="0,25,39,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Click="Button_Click2"/>
-        <TextBlock Name="TextBlock1Win2" HorizontalAlignment="Left" Height="277" Margin="41,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="452" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="13.333" Background="#FF222A5B" TextAlignment="Justify" LineHeight="14.667"/>
+        <TextBlock Name="TextBlock1Win2" HorizontalAlignment="Left" Height="276" Margin="41,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="458" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="13.333"  TextAlignment="Justify" LineHeight="14.667"/>
         <Image Name="image1win2" HorizontalAlignment="Left" Height="149" Margin="219,123,0,0" VerticalAlignment="Top" Width="134"/>
         <TextBlock Name="TextBlock2Win2" HorizontalAlignment="Left" Height="29" Margin="41,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="21.333" Background="#FF222A5B" TextAlignment="Center"/>
         <TextBlock Name="TextBlock3Win2" HorizontalAlignment="Left" Height="15" Margin="41,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Background="#FF222A5B" TextAlignment="Center" LineHeight="10.667"/>
-        <TextBlock Name="TextBlock4Win2" HorizontalAlignment="Left" Height="15" Margin="316,617,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Background="#FF222A5B" TextAlignment="Center" LineHeight="10.667"/>
+        <TextBlock Name="TextBlock4Win2" HorizontalAlignment="Left" Height="15" Margin="316,617,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Foreground="#FFFBDBDB" FontWeight="Bold" FontFamily="Verdana" FontSize="11"  TextAlignment="Center" LineHeight="10.667"/>
     </Grid>
 </Window>
